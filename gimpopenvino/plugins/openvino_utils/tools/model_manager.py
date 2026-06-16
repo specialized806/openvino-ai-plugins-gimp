@@ -411,14 +411,20 @@ def get_npu_config(core, architecture):
         return None
     
 class ModelManager:
-    def __init__(self, weight_path):
+    def __init__(self, weight_path, npu_arch=None, npu_is_available=None):
         self._core = ov.Core()
-        self._npu_arch = get_npu_architecture(self._core)
+        if npu_arch is not None:
+            self._npu_arch = npu_arch
+        else:
+            self._npu_arch = get_npu_architecture(self._core)
         self._npu_config = get_npu_config(self._core, self._npu_arch)
         self._npu_driver_version = get_npu_driver_version(self._core)
         self._weight_path = weight_path
         self._install_location = os.path.join(self._weight_path, "stable-diffusion-ov")
-        self._npu_is_available = True if self._npu_arch is not NPUArchitecture.ARCH_3700 and self._npu_arch is not NPUArchitecture.ARCH_NONE else False
+        if npu_is_available is not None:
+            self._npu_is_available = npu_is_available
+        else:
+            self._npu_is_available = self._npu_arch is not NPUArchitecture.ARCH_3700 and self._npu_arch is not NPUArchitecture.ARCH_NONE
         self.show_hf_download_tqdm = False
 
         self.hf_api = HfApi()

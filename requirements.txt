@@ -1,9 +1,0 @@
-openvino==2026.0.0
-openvino-genai==2026.0.0.0
-optimum
-optimum-intel 
-peft
-pydantic
-tomesd
-hf_xet 
-transformers<=4.56.2

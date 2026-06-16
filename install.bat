@@ -40,7 +40,6 @@ call "gimpenv3\Scripts\activate"
 
 REM Install required packages
 pip install wmi
-pip install -r "%~dp0\requirements.txt" | find /V "already satisfied"
 pip install "%~dp0\."
 
 REM post install steps:
