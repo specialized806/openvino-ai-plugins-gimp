@@ -82,7 +82,7 @@ setup(
     ],
     keywords="openvino gimp ai plugins",
     packages=find_packages(),
-    python_requires=">=3.7",  # Update Python requirement
+    python_requires=">=3.10",
     include_package_data=True,
     install_requires=[
         "numpy",
@@ -92,13 +92,21 @@ setup(
         "opencv-python>=4.8.1.78",
         "scikit-image",
         "timm==0.4.5",
-        "transformers>=4.37.0",
-        "diffusers",
+        "transformers>=4.37.0,<=4.56.2",
+        "diffusers<=0.37.1",
         "controlnet-aux>=0.0.6",
-        "openvino",
+        "openvino>=2026.2",
+        "openvino-genai>=2026.2",
+        "protobuf",
         "psutil",
         "matplotlib",
-        "sentencepiece"
+        "sentencepiece",
+        "optimum",
+        "optimum-intel",
+        "peft",
+        "pydantic",
+        "tomesd",
+        "hf_xet",
     ],
 )
 

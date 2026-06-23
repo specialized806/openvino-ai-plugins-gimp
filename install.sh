@@ -33,7 +33,7 @@ python3 -m venv gimpenv3
 source gimpenv3/bin/activate
 
 # Upgrade pip and install required packages
-pip3 install -r "$script_dir/requirements.txt" | grep -v "already satisfied"
+pip3 install --upgrade pip
 pip3 install "$script_dir/."
 
 # post installation steps
